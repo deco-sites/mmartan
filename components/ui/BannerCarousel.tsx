@@ -60,8 +60,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           media="(max-width: 767px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={mobile}
-          width={360}
-          height={600}
+          width={414}
+          height={627}
         />
         <Source
           media="(min-width: 768px)"
@@ -153,7 +153,7 @@ function Buttons() {
 
 function BannerCarousel({ images, preload, interval }: Props) {
   const id = useId();
-
+  console.log(images?.length)
   return (
     <div
       id={id}
@@ -167,7 +167,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
         ))}
       </Slider>
 
-      <Buttons />
+      {(images?.length || 0) > 1 ? <Buttons /> :  null}
 
       <Dots images={images} interval={interval} />
 

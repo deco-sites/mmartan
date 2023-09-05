@@ -37,3 +37,10 @@
     --dot-progress: 100%
   }
 }
+
+@layer utilities{
+  .card-shadow{
+    border: 2px solid #f3f1f0;
+    box-shadow: rgba(0,0,0,0.1) 0 0.1rem 0 0;
+  }
+}

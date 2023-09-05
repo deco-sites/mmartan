@@ -103,7 +103,7 @@ function ProductCard(
   return (
     <div
       id={id}
-      class={`card card-compact group w-full ${
+      class={`card card-compact group w-full card-shadow rounded-[12px] ${
         align === "center" ? "text-center" : "text-start"
       } ${l?.onMouseOver?.showCardShadow ? "lg:hover:card-bordered" : ""}
         ${
@@ -208,22 +208,7 @@ function ProductCard(
         </figcaption>
       </figure>
       {/* Prices & Name */}
-      <div class="flex-auto flex flex-col p-2 gap-3 lg:gap-4">
-        {/* SKU Selector */}
-        {(!l?.elementsPositions?.skuSelector ||
-          l?.elementsPositions?.skuSelector === "Top") && (
-          <>
-            {l?.hide?.skuSelector ? "" : (
-              <ul
-                class={`flex items-center gap-2 w-full overflow-auto p-3 ${
-                  align === "center" ? "justify-center" : "justify-start"
-                } ${l?.onMouseOver?.showSkuSelector ? "lg:hidden" : ""}`}
-              >
-                {skuSelector}
-              </ul>
-            )}
-          </>
-        )}
+      <div class="flex-auto flex flex-col p-2 gap-3 lg:gap-4 mt-4">
 
         {l?.hide?.productName && l?.hide?.productDescription
           ? ""
@@ -232,16 +217,9 @@ function ProductCard(
               {l?.hide?.productName
                 ? ""
                 : (
-                  <h2 class="truncate text-base lg:text-lg text-base-content">
+                  <h2 class="truncate text-sm text-base-content font-semibold">
                     {name}
                   </h2>
-                )}
-              {l?.hide?.productDescription
-                ? ""
-                : (
-                  <p class="truncate text-sm lg:text-sm text-neutral">
-                    {product.description}
-                  </p>
                 )}
             </div>
           )}
@@ -261,7 +239,7 @@ function ProductCard(
               >
                 {formatPrice(listPrice! / 100, offers!.priceCurrency!)}
               </div>
-              <div class="text-accent text-base lg:text-xl">
+              <div class="text-accent text-base">
                 {formatPrice(price! / 100, offers!.priceCurrency!)}
               </div>
             </div>
@@ -269,7 +247,7 @@ function ProductCard(
               ? ""
               : (
                 <div class="text-base-300 text-sm lg:text-base">
-                  ou {installments}
+                  {installments}
                 </div>
               )}
           </div>
