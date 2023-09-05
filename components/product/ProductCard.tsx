@@ -55,7 +55,7 @@ const relative = (url: string) => {
 };
 
 const WIDTH = 200;
-const HEIGHT = 279;
+const HEIGHT = 200;
 
 function ProductCard(
   { product, preload, itemListName, layout, platform }: Props,
@@ -259,10 +259,10 @@ function ProductCard(
                   l?.basics?.oldPriceSize === "Normal" ? "lg:text-xl" : ""
                 }`}
               >
-                {formatPrice(listPrice, offers!.priceCurrency!)}
+                {formatPrice(listPrice! / 100, offers!.priceCurrency!)}
               </div>
               <div class="text-accent text-base lg:text-xl">
-                {formatPrice(price, offers!.priceCurrency!)}
+                {formatPrice(price! / 100, offers!.priceCurrency!)}
               </div>
             </div>
             {l?.hide?.installments
